@@ -38,7 +38,7 @@ import ColorOpt from "./ColorOpt.vue"
     font-size: 19px;
 }
 .apply-btn{
-    background-color: #ff3a5c;
+    background-color: #51cef5;
     border-radius: 30px;
     color: white;
     width: 210px;

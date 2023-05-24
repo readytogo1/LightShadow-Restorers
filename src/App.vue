@@ -18,15 +18,12 @@
 </template>
 
 <style scoped>
-body {
-  background-color: #000;
-}
+
 
 .left-sider {
   position: relative;
   width: 350px;
   height: 686px;
-  background-color: #000;
 }
 
 .show-wrapper {

@@ -25,7 +25,7 @@
     margin-top: 10px;
 }
 .logo{
-    background-color: #f98078;
+    background-color: #ffbfc8;
     width: 40px;
     height: 40px;
     border-radius: 10px;

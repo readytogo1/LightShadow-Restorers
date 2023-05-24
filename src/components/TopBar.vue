@@ -24,7 +24,6 @@
     .bar-wrapper{
         width: 1440px;
         height: 74px;
-        background-color: #000;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -65,13 +64,13 @@
     }
     .log-reg{
         width: 150px;
-        border-color: rgba(255, 255, 255, .15);
+        border: 2px solid rgba(255, 255, 255, .15);
         background-color: rgba(255, 255, 255, 0);
         color: #fff;
     }
     .download{
         width: 120px;
-        background-color: #ff3a5c;
+        background-color: #51cef5;
         border-color: rgba(255, 255, 255, .15);
         color: #fff;
     }

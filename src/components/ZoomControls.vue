@@ -151,7 +151,7 @@ span{
     cursor: pointer;
 }
 .upload-wrapper div{
-    background-color: #ff3a5c;
+    background-color: #51cef5;
     width: 40px ;
     height: 40px;
     display: flex;
