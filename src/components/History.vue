@@ -109,7 +109,7 @@ const toggleShow = function () {
 .history-wrapper {
     width: 200px;
     height: 646px;
-    background-color: #1b1b1f;
+    background-color: #2b2b2f;
     position: absolute;
     right: 0;
     top: 20px;
@@ -126,7 +126,7 @@ const toggleShow = function () {
     left: 810px;
     width: 30px;
     height: 60px;
-    background-color: #1b1b1f;
+    background-color: #2b2b2f;
     display: flex;
     align-items: center;
     border-radius: 20px;

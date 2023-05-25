@@ -1,26 +1,26 @@
 <script setup>
-import EnhanceOpt from './EnhanceOpt.vue';
-import InpaintOpt from './InpaintOpt.vue';
-import ColorOpt from "./ColorOpt.vue"
+import ModelOpt from './ModelOpt.vue';
 </script>
 
 <template>
     <div class="side-wrapper">
         <div class="tool-title">工具栏</div>
-        <EnhanceOpt></EnhanceOpt>
-        <InpaintOpt></InpaintOpt>
-        <ColorOpt></ColorOpt>
+        <ModelOpt title="图像增强" description="提升图像细节" logoIcon="ri-image-line" logoColor="#f8df72"
+        :options="['基础版', 'v1版']" />
+        <ModelOpt title="图像修复" description="修复图像空缺裂痕" logoIcon="ri-tools-line" logoColor="#77b483"
+        :options="['基础版', 'v1版']" />
+        <ModelOpt title="图像上色" description="为图像增添色彩" logoIcon="ri-palette-fill" logoColor="#ffbfc8"
+            :options="['不使用', '基础版']" />
         <button class="apply-btn">应用</button>
     </div>
 </template>
 
 
 <style scoped>
-
-.side-wrapper{
+.side-wrapper {
     position: absolute;
     border-radius: 20px;
-    background-color: #121216;
+    background-color: #222226;
     width: 250px;
     height: 646px;
     top: 20px;
@@ -29,15 +29,18 @@ import ColorOpt from "./ColorOpt.vue"
     box-sizing: border-box;
     overflow: auto;
 }
-::-webkit-scrollbar{
-    display:none;
+
+::-webkit-scrollbar {
+    display: none;
 }
-.tool-title{
+
+.tool-title {
     color: #b1b1b8;
     margin-bottom: 20px;
     font-size: 19px;
 }
-.apply-btn{
+
+.apply-btn {
     background-color: #51cef5;
     border-radius: 30px;
     color: white;

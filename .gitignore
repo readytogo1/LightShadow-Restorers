@@ -26,3 +26,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+/src/components/sider/ColorOpt.vue
+/src/components/sider/EnhanceOpt.vue
+/src/components/sider/InpaintOpt.vue

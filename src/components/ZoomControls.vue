@@ -1,49 +1,3 @@
-<!-- <template>
-<div class="slider-container">
-    <input type="range" min="0.1" max="2.5" step="0.1" :value="scale" class="slider" @input="handleScaleInput">
-    <span>当前尺寸：{{ imageSize.width }}px × {{ imageSize.height }}px，缩放比例：{{ (scale * 100).toFixed(0) }}%</span>
-</div>
-</template>
-
-<script>
-export default {
-props: {
-    scale: {
-    type: Number,
-    required: true,
-    },
-    imageSize: {
-    type: Object,
-    required: true,
-    },
-},
-methods: {
-    handleScaleInput(event) {
-    const newScale = parseFloat(event.target.value);
-    this.$emit('update:scale', newScale);
-    },
-},
-};
-</script>
-
-<style scoped>
-*{
-color: white;
-}
-.slider-container {
-display: flex;
-align-items: center;
-}
-
-.slider {
-flex-grow: 1;
-}
-
-span {
-margin-left: 10px;
-}
-</style>
--->
 <template>
     <div class="footer-container">
         <div class="slider-container">
@@ -61,7 +15,7 @@ margin-left: 10px;
 
             <i class="ri-fullscreen-fill resize" @click="resetScale"></i>
         </div>
-        <div class="upload-wrapper">
+        <div class="upload-wrapper" @click="handleUpload">
             <span>上传图片</span>
             <div>
                 <i class="ri-upload-2-line"></i>
@@ -71,11 +25,12 @@ margin-left: 10px;
 </template>
 
 <style scoped>
-.footer-container{
+.footer-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .slider-container .key {
     color: #666;
     font-size: 18px;
@@ -139,10 +94,12 @@ margin-left: 10px;
     background-color: var(--inactive-color);
     /* 设置滑块左侧进度条的颜色 */
 }
-span{
+
+span {
     margin-left: 10px;
 }
-.upload-wrapper{
+
+.upload-wrapper {
     color: #fff;
     margin-right: 80px;
     font-size: 18px;
@@ -150,9 +107,10 @@ span{
     align-items: center;
     cursor: pointer;
 }
-.upload-wrapper div{
+
+.upload-wrapper div {
     background-color: #51cef5;
-    width: 40px ;
+    width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -160,11 +118,11 @@ span{
     border-radius: 5px;
     margin-left: 10px;
 }
-
 </style>
 
 
 <script>
+import axios from 'axios';
 export default {
     props: {
         scale: {
@@ -192,6 +150,30 @@ export default {
         },
         resetScale() {
             this.$emit('update:scale', 1);
+        },
+        handleUpload() {
+            const inputElement = document.createElement('input');
+            inputElement.type = 'file';
+            inputElement.accept = 'image/*';
+            inputElement.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                const formData = new FormData();
+                formData.append('image', file);
+
+                // 使用axios或其他网络请求库发送formData到服务器
+                // 示例使用axios发送POST请求
+                axios.post('http://localhost:3000/upload', formData)
+                    .then(response => {
+                        // 上传成功的处理逻辑
+                        console.log('Upload successful');
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        // 上传失败的处理逻辑
+                        console.error('Upload failed:', error);
+                    });
+            });
+            inputElement.click();
         },
     },
 };
