@@ -175,13 +175,14 @@ const toggleShow = function () {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    margin-top: 20px;
 }
 
 .item i {
     font-size: 20px;
     position: absolute;
-    top: 25px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
     color: #fff;
     border-radius: 50%;
     z-index: 10;
@@ -191,7 +192,6 @@ const toggleShow = function () {
     width: 150px;
     border-radius: 10px;
     border: 2px solid white;
-    margin-top: 20px;
 }
 .history-wrapper .item:hover::before {
     content: "";

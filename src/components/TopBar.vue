@@ -1,8 +1,12 @@
 <script setup>
-
+import LoginLayer from "./window/LoginLayer.vue"
+import {ref} from "vue"
+const showLogin = ref(false)
 </script>
 
 <template>
+    <LoginLayer :is-show="showLogin" @hide="showLogin = false"></LoginLayer>
+
     <div class="bar-wrapper">
         <div class="brand-wrapper">
             <a href="/" class="brand">
@@ -11,7 +15,7 @@
         </div>
         <div class="operation-wrapper">
             <span class="help op">帮助</span>
-            <button class="log-reg op">登录 / 注册</button>
+            <button class="log-reg op" @click="showLogin = true">登录 / 注册</button>
             <div class="line"></div>
             <button class="download op">下载
                 <i class="ri-download-line"></i>

@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
 ::-webkit-scrollbar {
     width: 5px;											/* //定义滚动条宽度 */
     height: 10px;											/* //定义滚动条高度 */

@@ -18,8 +18,6 @@
 </template>
 
 <style scoped>
-
-
 .left-sider {
   position: relative;
   width: 350px;
@@ -52,7 +50,7 @@ import ZoomControls from './components/ZoomControls.vue';
 
 import { ref, reactive } from 'vue'
 const imgPath = ["/img/1.jpg", '/img/2.jpg']
-const imgPathHis = ["/img/1.jpg"]
+const imgPathHis = ["/img/1.jpg","/img/3.jpg"]
 
 const scale = ref(1)
 const imageSize = ref({
