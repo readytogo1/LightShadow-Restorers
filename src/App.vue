@@ -13,7 +13,9 @@
     </div>
   </div>
   <div class="footer">
-    <ZoomControls :scale="scale" :imageSize="imageSize" @update:scale="scale = $event"></ZoomControls>
+    <ZoomControls :scale="scale" :imageSize="imageSize" 
+      @update:scale="scale = $event" 
+      @update:imgPath="imgPath = $event"></ZoomControls>
   </div>
 </template>
 
@@ -48,8 +50,8 @@ import TopBar from './components/TopBar.vue';
 import History from './components/History.vue'
 import ZoomControls from './components/ZoomControls.vue';
 
-import { ref, reactive } from 'vue'
-const imgPath = ["/img/1.jpg", '/img/2.jpg']
+import { ref, reactive, readonly } from 'vue'
+const imgPath = ref(["/img/1.jpg", '/img/2.jpg'])
 const imgPathHis = ["/img/1.jpg","/img/3.jpg"]
 
 const scale = ref(1)

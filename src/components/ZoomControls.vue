@@ -167,6 +167,7 @@ export default {
                         // 上传成功的处理逻辑
                         console.log('Upload successful');
                         console.log(response);
+                        this.$emit('update:imgPath', response.data);
                     })
                     .catch(error => {
                         // 上传失败的处理逻辑
