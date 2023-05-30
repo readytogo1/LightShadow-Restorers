@@ -50,7 +50,7 @@ import TopBar from './components/TopBar.vue';
 import History from './components/History.vue'
 import ZoomControls from './components/ZoomControls.vue';
 
-import { ref, reactive, readonly } from 'vue'
+import { ref, readonly } from 'vue'
 const imgPath = ref(["/img/1.jpg", '/img/2.jpg'])
 const imgPathHis = ["/img/1.jpg","/img/3.jpg"]
 
