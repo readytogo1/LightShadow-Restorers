@@ -1,36 +1,59 @@
 <script setup>
+import { defineProps } from 'vue';
 import ModelOpt from './ModelOpt.vue';
-import {ref} from "vue"
-const selectedOptions = ref([0,0,0]);
+const emits = defineEmits(['paramSend']);
+const props = defineProps({
+  selectedOptions: {
+    type: Array,
+    required: true
+  }
+});
 
 function handleOptionSelected(index, selected) {
-  selectedOptions.value[index] = selected;
+  props.selectedOptions[index] = selected;
 }
+
 function handleApply() {
-  // 对每个子组件的选中索引进行处理
-  selectedOptions.value.forEach((selected, index) => {
-    console.log(`子组件 ${index} 的选中索引：`, selected);
-    // 在这里可以执行根据选中索引进行的后续处理操作
-  });
+  emits('paramSend', props.selectedOptions);
 }
 </script>
 
 <template>
-    <div class="side-wrapper">
-        <div class="tool-title">工具栏</div>
-        <ModelOpt title="图像增强" description="提升图像细节" logoIcon="ri-image-line" logoColor="#f8df72"
-        :options="['不使用', 'v1版']" @selected="handleOptionSelected(0, $event)"/>
-        <ModelOpt title="图像修复" description="修复图像空缺裂痕" logoIcon="ri-tools-line" logoColor="#77b483"
-        :options="['不使用', 'v1版']" @selected="handleOptionSelected(1, $event)"/>
-        <ModelOpt title="图像上色" description="为图像增添色彩" logoIcon="ri-palette-fill" logoColor="#ffbfc8"
-            :options="['不使用', '柔和', '冷色调']" typeOpt="1" desc="自动上色" 
-            :optionsImg="['/img/style_img/prohibited.png','/img/style_img/soft.png','/img/style_img/coolcolourtone.png']"
-            @selected="handleOptionSelected(2, $event)"/>
-    </div>
-    <div class="button-wrapper">
-        <button class="apply-btn" @click="handleApply">应用</button>
-    </div>
+  <div class="side-wrapper">
+    <div class="tool-title">工具栏</div>
+    <ModelOpt
+      title="图像增强"
+      description="提升图像细节"
+      logoIcon="ri-image-line"
+      logoColor="#f8df72"
+      :options="['不使用', 'v1版']"
+      @selected="handleOptionSelected(0, $event)"
+    />
+    <ModelOpt
+      title="图像修复"
+      description="修复图像空缺裂痕"
+      logoIcon="ri-tools-line"
+      logoColor="#77b483"
+      :options="['不使用', 'v1版']"
+      @selected="handleOptionSelected(1, $event)"
+    />
+    <ModelOpt
+      title="图像上色"
+      description="为图像增添色彩"
+      logoIcon="ri-palette-fill"
+      logoColor="#ffbfc8"
+      :options="['不使用', '柔和', '冷色调']"
+      typeOpt="1"
+      desc="自动上色"
+      :optionsImg="['/img/style_img/prohibited.png', '/img/style_img/soft.png', '/img/style_img/coolcolourtone.png']"
+      @selected="handleOptionSelected(2, $event)"
+    />
+  </div>
+  <div class="button-wrapper">
+    <button class="apply-btn" @click="handleApply">应用</button>
+  </div>
 </template>
+
 
 
 <style scoped>

@@ -15,7 +15,7 @@
 
             <i class="ri-fullscreen-fill resize" @click="resetScale"></i>
         </div>
-        <div class="upload-wrapper" @click="handleUpload">
+        <div class="upload-wrapper" @click="$emit('send')">
             <span>上传图片</span>
             <div>
                 <i class="ri-upload-2-line"></i>
@@ -122,7 +122,6 @@ span {
 
 
 <script>
-import axios from 'axios';
 export default {
     props: {
         scale: {
@@ -150,31 +149,6 @@ export default {
         },
         resetScale() {
             this.$emit('update:scale', 1);
-        },
-        handleUpload() {
-            const inputElement = document.createElement('input');
-            inputElement.type = 'file';
-            inputElement.accept = 'image/*';
-            inputElement.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                const formData = new FormData();
-                formData.append('image', file);
-
-                // 使用axios或其他网络请求库发送formData到服务器
-                // 示例使用axios发送POST请求
-                axios.post('http://localhost:3000/upload', formData)
-                    .then(response => {
-                        // 上传成功的处理逻辑
-                        console.log('Upload successful');
-                        console.log(response);
-                        this.$emit('update:imgPath', response.data);
-                    })
-                    .catch(error => {
-                        // 上传失败的处理逻辑
-                        console.error('Upload failed:', error);
-                    });
-            });
-            inputElement.click();
         },
     },
 };
