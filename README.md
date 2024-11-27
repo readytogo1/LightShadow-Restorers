@@ -30,3 +30,6 @@ yarn dev
 ```sh
 yarn build
 ```
+
+![image](https://github.com/user-attachments/assets/567208a5-bd85-408b-895c-7591ed41a197)
+
